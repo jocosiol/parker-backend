@@ -8,7 +8,7 @@ ITC's Hackathon - Report available public parking.
 ## Entity-Relationship Diagram of SQL DataBase
 
 
-![ERD_DB_parker](https://res.cloudinary.com/imgpetapp/image/upload/v1641979934/WhatsApp_Image_2022-01-11_at_5.48.24_PM_iykcgu.jpg)
+![ERD_DB_parker](https://res.cloudinary.com/imgpetapp/image/upload/v1641996999/ERD_r88771.png)
 
 ## Endpoints
 
@@ -18,9 +18,9 @@ ITC's Hackathon - Report available public parking.
 - **Expect:** Object {userId, newParkingLat, newParkingLon }
 - **Return:** Object {userId, userRanking}
 
-### [GET | "/driver/parking"]: Get all the available parking spot.
+### [GET | "/driver/parking/:id"]: Get all the available parking spot.
 
-- **Expect:** Object {userId, userLat , userLon}
+- **Expect:** Params userId
 - **Return:** Array of Objects [{parkingId, parkingLat , parkingLon},...]
 
 ### [PUT | "/driver/parking"]: Update if the parking spot is taken.
