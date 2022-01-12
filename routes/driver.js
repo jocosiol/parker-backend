@@ -1,18 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { getAvailableParking, updateParkingById, updateUserLocationById } = require("../data/driver");
+const { getParkingNearUser, updateParkingById, updateUserLocationById } = require("../data/driver");
 
 router.get("/parking/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const allParkingAvailable = await getAvailableParking();
-    res.status(201).send([
-      {
-        minutes: 30,
-        lat: 123.123123,
-        lon: 123.123123
-      }
-    ]);
+    const parkingNearUser = await getParkingNearUser(id);
+    if (!parkingNearUser) res.status(404).send('No parking.');
+    res.status(200).send(parkingNearUser);
   } catch (err) {
     console.log(err);
   }

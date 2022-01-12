@@ -11,14 +11,38 @@ async function updateParkingById(parkingId) {
     }
   }
   
-  async function updateUserLocationById(userId, userLat, userLon) {
+async function updateUserLocationById(userId, userLat, userLon) {
     try {
-      const sql = SQL`UPDATE user SET currentLat=${userLat}, currentLon=${userLon} WHERE id=${userId}`;
-      const editUser = await query(sql);
-      return 
+        const sql = SQL`UPDATE user SET currentLat=${userLat}, currentLon=${userLon} WHERE id=${userId}`;
+        const editUser = await query(sql);
+        return 
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
-  }
+}
 
-module.exports = { updateParkingById, updateUserLocationById };
+async function getUsersLatestLocation(userId) {
+    try {
+        const sql = SQL`SELECT currentLat, currentLon FROM user WHERE id = ${userId};`;
+        const coordinates = await query(sql);
+        return coordinates;
+    } catch(err) {
+        console.log(err);
+        return null
+    }
+}
+
+async function getParkingNearUser(userId) {
+    try {
+        const usersLocation = await getUsersLatestLocation(userId);
+        if (!usersLocation) throw new Error("Something went wrong.");
+        const sql = SQL`SELECT lat, lon FROM parking WHERE available = 1 AND lat >= ${usersLocation[0].currentLat - 0.008} AND lat <= ${usersLocation[0].currentLat + 0.008} AND lon >= ${usersLocation[0].currentLon - 0.008} AND lon <= ${usersLocation[0].currentLon + 0.008};`;
+        const results = await query(sql);
+        return results;
+    } catch(err) {
+        console.log(err);
+        return null;
+    }
+}
+
+module.exports = { updateParkingById, updateUserLocationById, getParkingNearUser };
