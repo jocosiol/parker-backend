@@ -15,7 +15,7 @@ ITC's Hackathon - Report available public parking.
 - **Expect:** Object {userId, newParkingLat, newParkingLon }
 - **Return:** Object {createdParkingId, userId, userRanking}
 
-### [GET | "/driver/parking/:id"]: Get all the available parking spot.
+### ✅ [GET | "/driver/parking/:id"]: Get all the available parking spot.
 
 - **Expect:** Params userId
 - **Return:** Array of Objects [{parkingId, parkingLat , parkingLon},...]
