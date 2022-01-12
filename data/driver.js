@@ -11,4 +11,5 @@ async function updateParkingById(parkingId) {
     }
 }
 
+
 module.exports = { updateParkingById };
