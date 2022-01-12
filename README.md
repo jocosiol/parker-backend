@@ -4,14 +4,11 @@
 
 ITC's Hackathon - Report available public parking.
 
-
 ## Entity-Relationship Diagram of SQL DataBase
-
 
 ![ERD_DB_parker](https://res.cloudinary.com/imgpetapp/image/upload/v1641996999/ERD_r88771.png)
 
 ## Endpoints
-
 
 ### [POST | "/pedestrian/newparking"]: Post a new available parking spot.
 
@@ -26,9 +23,9 @@ ITC's Hackathon - Report available public parking.
 ### [PUT | "/driver/parking"]: Update if the parking spot is taken.
 
 - **Expect:** Object {parkingId}
-- **Return:** 
+- **Return:** Message
 
 ### [PUT | "/driver/location"]: Update driver location to search for available parking spots.
 
 - **Expect:** Object {userId, userLat, userLon}
-- **Return:** 
+- **Return:** Message
