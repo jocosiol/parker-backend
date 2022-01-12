@@ -13,7 +13,7 @@ ITC's Hackathon - Report available public parking.
 ### ✅ [POST | "/pedestrian/newparking"]: Post a new available parking spot.
 
 - **Expect:** Object {userId, newParkingLat, newParkingLon }
-- **Return:** Object {userId, userRanking}
+- **Return:** Object {createdParkingId, userId, userRanking}
 
 ### [GET | "/driver/parking/:id"]: Get all the available parking spot.
 
