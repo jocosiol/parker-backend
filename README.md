@@ -10,7 +10,7 @@ ITC's Hackathon - Report available public parking.
 
 ## Endpoints
 
-### [POST | "/pedestrian/newparking"]: Post a new available parking spot.
+### ✅ [POST | "/pedestrian/newparking"]: Post a new available parking spot.
 
 - **Expect:** Object {userId, newParkingLat, newParkingLon }
 - **Return:** Object {userId, userRanking}
@@ -20,12 +20,12 @@ ITC's Hackathon - Report available public parking.
 - **Expect:** Params userId
 - **Return:** Array of Objects [{parkingId, parkingLat , parkingLon},...]
 
-### [PUT | "/driver/parking"]: Update if the parking spot is taken.
+### ✅ [PUT | "/driver/parking"]: Update if the parking spot is taken.
 
 - **Expect:** Object {parkingId}
 - **Return:** Message
 
-### [PUT | "/driver/location"]: Update driver location to search for available parking spots.
+### ✅ [PUT | "/driver/location"]: Update driver location to search for available parking spots.
 
 - **Expect:** Object {userId, userLat, userLon}
 - **Return:** Message
