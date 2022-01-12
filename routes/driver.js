@@ -6,7 +6,13 @@ router.get("/parking/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const allParkingAvailable = await getAvailableParking();
-    res.status(201).json(newParking);
+    res.status(201).send([
+      {
+        minutes: 30,
+        lat: 123.123123,
+        lon: 123.123123
+      }
+    ]);
   } catch (err) {
     console.log(err);
   }
