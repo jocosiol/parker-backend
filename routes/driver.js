@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getAvailableParking, updateParkingById } = require("../data/driver");
+const { getAvailableParking, updateParkingById, updateUserLocationById } = require("../data/driver");
 
 router.get("/parking/:id", async (req, res) => {
   try {
@@ -27,8 +27,15 @@ router.put("/parking", async (req, res) => {
     console.log(err);
   }
 });
-router.put("/", (req, res) => {
-  res.send("Hello World!");
+
+router.put("/location", async (req, res) => {
+  try{
+    const { userId, userLat, userLon } = req.body;
+    const updateUserLocation = await updateUserLocationById(userId, userLat, userLon);
+    res.status(201).json("User location updated successfully.");
+  } catch (err){
+    console.log(err);
+  }
 });
 
 module.exports = router;
