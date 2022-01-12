@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require("cors");
+const { postgrator } = require("./lib/db");
 const pedestrianRoute = require("./routes/pedestrian");
 const driverRoute = require("./routes/driver");
 
@@ -12,7 +13,14 @@ app.use(express.json());
 app.use('/pedestrian', pedestrianRoute);
 app.use('/driver', driverRoute);
 
+postgrator
+  .migrate()
+  .then((result) => {
+    console.log(`Migrated DB successfully:`, result);
+    app.listen(PORT, () => {
+      console.log(`Listening at http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => console.error(error));
 
-app.listen(PORT, () => {
-    console.log(`Listening at http://localhost:${PORT}`);
-});
+  module.exports = app
