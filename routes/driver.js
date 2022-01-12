@@ -22,7 +22,7 @@ router.put("/parking", async (req, res) => {
   try {
     const { parkingId } = req.body;
     const updateParking = await updateParkingById(parkingId);
-    res.status(201).json(updateParking);
+    res.status(201).json("Thanks for updating parking status to unavailable.");
   } catch (err) {
     console.log(err);
   }
