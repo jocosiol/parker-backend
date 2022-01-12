@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jocosiol/parker-backend#readme",
   "dependencies": {
+    "@nearform/sql": "^1.9.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mysql": "^2.18.1",
