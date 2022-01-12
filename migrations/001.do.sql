@@ -3,5 +3,7 @@ CREATE TABLE `user` (
   `name` varchar(255),
   `email` varchar(255),
   `hashedPassword` varchar(255),
-  `rankPoint` int
+  `rankPoint` int,
+  `currentLat` float,
+  `currentLon` float
 );
