@@ -19,7 +19,9 @@
   "homepage": "https://github.com/jocosiol/parker-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "postgrator": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
