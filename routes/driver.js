@@ -6,10 +6,11 @@ router.get("/parking/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const parkingNearUser = await getParkingNearUser(id);
-    if (!parkingNearUser) res.status(404).send('No parking.');
+    if (!parkingNearUser || !parkingNearUser.length) res.status(404).send('No parking near you.');
     res.status(200).send(parkingNearUser);
   } catch (err) {
     console.log(err);
+    res.status(500).send();
   }
 });
 

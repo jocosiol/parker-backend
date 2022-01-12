@@ -37,7 +37,11 @@ async function getParkingNearUser(userId) {
         const usersLocation = await getUsersLatestLocation(userId);
         if (!usersLocation) throw new Error("Something went wrong.");
         const sql = SQL`SELECT lat, lon FROM parking WHERE available = 1 AND lat >= ${usersLocation[0].currentLat - 0.008} AND lat <= ${usersLocation[0].currentLat + 0.008} AND lon >= ${usersLocation[0].currentLon - 0.008} AND lon <= ${usersLocation[0].currentLon + 0.008};`;
-        const results = await query(sql);
+        const secondSql = SQL`SELECT lat, lon FROM parking WHERE available = 1;`;
+        let results = await query(sql);
+        if (results && !results.length) {
+            results = await query(secondSql);
+        }
         return results;
     } catch(err) {
         console.log(err);
