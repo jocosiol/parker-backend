@@ -1,0 +1,27 @@
+{
+  "name": "parker-backend",
+  "version": "1.0.0",
+  "description": "ITC's Hackathon - Report available public parking.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jocosiol/parker-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jocosiol/parker-backend/issues"
+  },
+  "homepage": "https://github.com/jocosiol/parker-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
