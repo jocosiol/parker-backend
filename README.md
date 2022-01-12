@@ -6,13 +6,11 @@ ITC's Hackathon - Report available public parking.
 
 ## Entity-Relationship Diagram of SQL DataBase
 
----
 
 ![ERD_DB_parker](https://res.cloudinary.com/imgpetapp/image/upload/v1641979934/WhatsApp_Image_2022-01-11_at_5.48.24_PM_iykcgu.jpg)
 
 ## Endpoints
 
----
 
 ### [POST | "/pedestrian/newparking"]: Post a new available parking spot.
 
