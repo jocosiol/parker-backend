@@ -3,5 +3,5 @@ CREATE TABLE `user` (
   `name` varchar(255),
   `email` varchar(255),
   `hashedPassword` varchar(255),
-  `rank` int
+  `rankPoint` int
 );
