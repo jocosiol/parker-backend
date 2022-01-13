@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require('axios');
-const { getParkingNearUser, updateParkingById, updateUserLocationById, getUsersLatestLocation } = require("../data/driver");
+const { getParkingNearUser, updateParkingById, updateUserLocationById, getUsersLatestLocation, getTravelData } = require("../data/driver");
 require('dotenv').config();
 
 const calculateDistance = async (results, id) => {
@@ -25,6 +25,8 @@ const calculateDistance = async (results, id) => {
     })
     return await distances();
 }
+
+
 
 router.get("/parking/:id", async (req, res) => {
   try {
