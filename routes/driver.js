@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getParkingNearUser, updateParkingById, updateUserLocationById } = require("../data/driver");
+const { getParkingNearUser, updateParkingById, updateUserLocationById, getTravelData } = require("../data/driver");
 
 router.get("/parking/:id", async (req, res) => {
   try {
