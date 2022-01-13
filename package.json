@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jocosiol/parker-backend#readme",
   "dependencies": {
     "@nearform/sql": "^1.9.0",
+    "axios": "^0.24.0",
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",

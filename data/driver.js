@@ -49,4 +49,4 @@ async function getParkingNearUser(userId) {
     }
 }
 
-module.exports = { updateParkingById, updateUserLocationById, getParkingNearUser };
+module.exports = { updateParkingById, updateUserLocationById, getParkingNearUser, getUsersLatestLocation };
