@@ -2,7 +2,8 @@
 
 ![parker_logo](https://res.cloudinary.com/imgpetapp/image/upload/c_thumb,w_200,g_face/v1641979149/Parker_Logo_malwib.png)
 
-ITC's Hackathon - Report available public parking.
+ITC's Hackathon - Group 8
+Report available public parking system.
 
 ## Entity-Relationship Diagram of SQL DataBase
 
