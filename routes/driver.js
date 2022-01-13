@@ -17,7 +17,19 @@ const calculateDistance = async (results, id) => {
       results.forEach(result => {
         axios.get(url(result))
           .then(res => {
-            apiResults.push(res.data.rows[0].elements)
+            const response = res.data.rows[0].elements;
+            if (response[0].status === 'ZERO_RESULTS') {
+              apiResults.push({
+                duration: {
+                  text: "Too far to calculate"
+                },
+                distance: {
+                  text: "Very far away"
+                }
+              })
+            } else {
+              apiResults.push(response)
+            }
             counter++
             if (counter === results.length) resolve(apiResults)
           })  
