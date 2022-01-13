@@ -19,14 +19,14 @@ const calculateDistance = async (results, id) => {
           .then(res => {
             const response = res.data.rows[0].elements;
             if (response[0].status === 'ZERO_RESULTS') {
-              apiResults.push({
+              apiResults.push([{
                 duration: {
                   text: "Too far to calculate"
                 },
                 distance: {
                   text: "Very far away"
                 }
-              })
+              }])
             } else {
               apiResults.push(response)
             }
