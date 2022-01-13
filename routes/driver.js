@@ -3,6 +3,20 @@ const router = express.Router();
 const { getParkingNearUser, updateParkingById, updateUserLocationById } = require("../data/driver");
 
 router.get("/parking/:id", async (req, res) => {
+
+  const calculateDistance = async (results) => {
+        const { latitude, longitude } = await getUserCoordinates();
+        const url = (destination) => `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${latitude},${longitude}&destinations=${destination.lat},${destination.lon}&units=metric&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
+        results.forEach(result => {
+            fetch(url(result)).then(res => res.json()).then(res => console.log(res))
+        })
+    }
+
+    res.map(location => {
+        location.url = `https://www.waze.com/live-map/directions?navigate=yes&to=ll.${location.lat}%2C${location.lon}`;
+        return location;
+    })
+
   try {
     const { id } = req.params;
     const parkingNearUser = await getParkingNearUser(id);
