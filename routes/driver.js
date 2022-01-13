@@ -39,7 +39,9 @@ router.get("/parking/:id", async (req, res) => {
         return {
           url,
           duration: distances[index][0].duration.text,
-          distance: distances[index][0].distance.text
+          distance: distances[index][0].distance.text,
+          lat: location.lat,
+          lon: location.lon
         }
     })
     res.status(200).send(response);
@@ -61,8 +63,8 @@ router.put("/parking", async (req, res) => {
 
 router.put("/location", async (req, res) => {
   try{
-    const { userId, userLat, userLon } = req.body;
-    const updateUserLocation = await updateUserLocationById(userId, userLat, userLon);
+    const { userId, currentLat, currentLon } = req.body;
+    const updateUserLocation = await updateUserLocationById(userId, currentLat, currentLon);
     res.status(201).json("User location updated successfully.");
   } catch (err){
     console.log(err);
